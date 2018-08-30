@@ -7,19 +7,11 @@ scope: { localFn: '&outFn' }
 
 用来让parent向内部的directive暴露一些回调函数。
 
-注意，如果外面传的参数是：
+注意：
 
-```
-updateMessage(newMessage)
-```
+- 在看代码时注意函数名之间的对应关系，不要乱了
+- 在directive调用回调函数时，传的参数是JSON形式
 
-那么在directive中，应该这样调用：
-
-```
-updateMessage({
-    newMessage: 'some message'
-})
-```
 
 ```
 npm install
