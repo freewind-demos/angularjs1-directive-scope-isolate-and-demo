@@ -1,21 +1,15 @@
 const app = angular.module('app', [])
 app.controller('myController', function ($scope) {
-    $scope.userInfo = {
-        name: 'Freewind',
-        email: 'test@test.com'
-    }
-    $scope.change = function () {
-        $scope.userInfo = {
-            name: '111',
-            email: '111'
-        }
+    $scope.message = 'Hello from parent!'
+    $scope.updateMessage = function (newMessage) {
+        $scope.message = newMessage
     }
 })
 app.directive('myDirective', function () {
     return {
         restrict: 'E',
         scope: {
-            directiveUserInfo: '<userInfo'
+            updateParentMessage: '&updateParent'
         },
         template: '<div>' +
             '{{ directiveUserInfo }}' +
@@ -23,10 +17,9 @@ app.directive('myDirective', function () {
             '</div>',
         controller: function ($scope) {
             $scope.change = function () {
-                $scope.directiveUserInfo = {
-                    name: '222',
-                    email: '222'
-                }
+                $scope.updateParentMessage({
+                    xxx: 'hello from directive'
+                })
             }
         }
     }

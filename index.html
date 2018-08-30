@@ -1,12 +1,10 @@
 <html>
 <body ng-app="app">
 <div ng-controller="myController" class="controller">
-    <div>{{ userInfo }}
-        <button ng-click="change()">Change from parent</button>
-    </div>
+    {{ message }}
     <hr>
     <div class="directive">
-        <my-directive user-info="userInfo"></my-directive>
+        <my-directive update-parent="updateMessage(xxx)"></my-directive>
     </div>
 </div>
 <script src="./node_modules/angular/angular.js"></script>
